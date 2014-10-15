@@ -9,7 +9,7 @@ priceat-bloccit
 https://dashboard-next.heroku.com/apps/priceat-bloccit/settings
 ```
 
-== README
+## README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
