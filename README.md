@@ -2,6 +2,13 @@
 
 #Made with my mentor at [Bloc](http://bloc.io).
 
+Hosted on Heroku:
+priceat-bloccit
+
+```
+https://dashboard-next.heroku.com/apps/priceat-bloccit/settings
+```
+
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -26,6 +33,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
 
 
 Please feel free to use a different markup language if you do not plan to run
