@@ -32,7 +32,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Set-up
+instance variables for password, username and secret keys are located at: config/application.example.yml for key related information
+config/application.yml will not published 
 
 
 
