@@ -16,9 +16,18 @@ Comment.destroy_all
 end
 users = User.all
 
+15.times do
+  Topic.create!(
+    name: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph
+    )
+end
+topics = Topic.all
+
 50.times do 
   Post.create!(
     user: users.sample,
+      topic: topics.sample,
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph
   )
@@ -32,10 +41,34 @@ posts = Post.all
     )
 end
 
-User.first.update_attributes!(
-  email: 'priceat@gmail.com',
-  password: 'helloworld',
+admin = User.new(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'password',
+  role:     'admin'
   )
+
+admin.skip_confirmation!
+admin.save!
+
+moderator = User.new(
+  name:     'Moderator User',
+  email:    'moderator@example.com',
+  password: 'password',
+  role:     'moderator' 
+  )
+
+moderator.skip_confirmation!
+moderator.save!
+
+member = User.new(
+  name:   'Member User',
+  email:  'member@example.com',
+  password: 'password',
+  )
+
+member.skip_confirmation!
+member.save!
 
 puts "Seed finished"
 puts "#{User.count} users created"
