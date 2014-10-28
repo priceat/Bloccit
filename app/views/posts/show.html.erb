@@ -1,5 +1,5 @@
-<h1><%= markdown @post.title %>
-<%= image_tag(@post.image.thumb.url) if @post.image? %>
+<h1><%= markdown_title %>
+<%= image_tag(@post.image.thumb.url) if post.image.present? %>
   </h1>
 
 
@@ -13,7 +13,7 @@
      
      
      
-    <p><%= markdown @post.body %></p>
+    <p><%= markdown_body %></p>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
