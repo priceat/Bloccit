@@ -1,12 +1,13 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+   devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   has_many :posts
   has_many :comments
-    mount_uploader :avatar, AvatarUploader
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  
+  mount_uploader :avatar, AvatarUploader
 
   def admin?
     role == 'admin'
@@ -16,5 +17,4 @@ class User < ActiveRecord::Base
     role == 'moderator'
   end
   
-
 end

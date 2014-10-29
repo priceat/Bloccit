@@ -12,7 +12,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts.includes(:user).includes(:comments).paginate(page: params[:page], per_page: 10)
+    @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
+    authorize @topic
   end
 
   def edit
@@ -39,8 +40,22 @@ class TopicsController < ApplicationController
       flash[:notice] = "Topic was updated."
       redirect_to @topic
     else
-      flash[:error] = "There was an error saving the topic. Please try again."
+      flash[:error] = "There was an error deleting the topic. Please try again."
       render :edit
+    end
+
+    def destroy
+      @topic = Topic.find(params[:id])
+       name = topic.name 
+        authorize @topic
+      
+      if @topic.destroy
+      flash[:notice] = "\"#{name}\" successfully deleted."
+      redirect_to topics_path
+      else
+      flash[:error] = "There was an error saving the topic. Please try again."
+      render :show
+      end
     end
   end
 

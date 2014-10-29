@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :user
-    belongs_to :topic
-    mount_uploader :image, ImageUploader
+  belongs_to :topic
+    
 
   default_scope { order('created_at DESC')}
 
@@ -11,13 +11,6 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
-  def markdown_title
-    render_as_markdown title
-  end
-
-  def markdown_body
-    render_as_markdown body
-  end
-  
+  mount_uploader :image, ImageUploader
   
 end
