@@ -37,4 +37,14 @@ class Post < ActiveRecord::Base
     user.votes.create(value: 1, post: self)
   end
 
+ActiveRecord::Base.transaction
+   def save_with_initial_vote
+    if @post.create_vote.success?
+       @post.save
+    else 
+      flash[:error] = "There was an error saving the post. Please try again."
+      render :new
+
+    end
+  end
 end
