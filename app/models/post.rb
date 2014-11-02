@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   belongs_to :user
   belongs_to :topic
+  has_many :favorites, dependent: :destroy
 
 
   default_scope { order('rank DESC')}
@@ -35,16 +36,5 @@ class Post < ActiveRecord::Base
 
   def create_vote
     user.votes.create(value: 1, post: self)
-  end
-
-ActiveRecord::Base.transaction
-   def save_with_initial_vote
-    if @post.create_vote.success?
-       @post.save
-    else 
-      flash[:error] = "There was an error saving the post. Please try again."
-      render :new
-
-    end
   end
 end

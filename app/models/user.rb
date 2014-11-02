@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   mount_uploader :avatar, AvatarUploader
 
@@ -16,6 +17,12 @@ class User < ActiveRecord::Base
 
   def moderator?
     role == 'moderator'
+  end
+
+  def favorited(post)
+    favorites.where(post_id: @post_id).first
+    #this is my second try with this. Should post_id be a local that does
+    #not require an instance variable to run?
   end
   
 end
