@@ -20,9 +20,13 @@ class User < ActiveRecord::Base
   end
 
   def favorited(post)
-    favorites.where(post_id: @post_id).first
+    favorites.where(post_id: post.id).first
     #this is my second try with this. Should post_id be a local that does
     #not require an instance variable to run?
+  end
+
+  def voted(post)
+    votes.where(post_id: post.id).first
   end
   
 end

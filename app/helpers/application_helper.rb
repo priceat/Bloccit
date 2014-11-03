@@ -17,4 +17,16 @@ def markdown(text)
   (redcarpet.render text).html_safe
 end
   
+  def vote_link_classes(post)
+    if current_user.voted(post) && current_user.voted(post).up_vote?
+      vote.post = 'glyphicon glyphicon-chevron-up' && 'voted'
+
+    elsif current_user.voted(post) && current_user.voted(post).down_vote?
+      vote.post = 'glyphicon glyphicon-chevron-down' && 'voted'
+
+    else
+    end
+        
+
+
 end
