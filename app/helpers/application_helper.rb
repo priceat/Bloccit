@@ -18,14 +18,8 @@ module ApplicationHelper
     (redcarpet.render text).html_safe
   end
 
-  def up_vote_class(post)
-    vote = current_user.voted(post)
-    'glyphicon glyphicon-chevron-up' unless vote && vote.up_vote?
-  end
-  
-  def down_vote_class(post)
-    vote = current_user.voted(post)
-    'glyphicon glyphicon-chevron-down' if vote && vote.up_vote?
+  def user_voted(post)
+    'voted' if current_user.voted(post)
   end
 
 end
