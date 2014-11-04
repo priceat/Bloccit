@@ -76,3 +76,4 @@ group :development do
   gem 'better_errors'
 end
 
+gem 'newrelic_rpm'
