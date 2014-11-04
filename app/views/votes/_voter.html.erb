@@ -2,14 +2,14 @@
 <div class="vote-arrows pull-left">
    <div><%= link_to " ", 
         post_up_vote_path(post),
-        class: vote_link_classes(post, 'up'), method: :post %>
+        class: up_vote_class(post), method: :post %>
    </div>
    <div><strong><%= post.points %></strong>
    </div>
   
    <div><%= link_to " ", 
    post_down_vote_path(post), 
-   class: vote_link_classes(post, 'down'), method: :post %>
+   class: down_vote_class(post), method: :post %>
   </div>
  </div>
 <% end %>

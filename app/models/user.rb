@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def voted(post)
-    votes.where(post_id: post.id).first
+    votes.find_by(post_id: post.id)
   end
   
 end
