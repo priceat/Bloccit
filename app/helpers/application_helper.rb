@@ -10,23 +10,26 @@ module ApplicationHelper
       content_tag :div, capture(&block), class: 'form-group'
     end
   end
-def markdown(text)
-  renderer = Redcarpet::Render::HTML.new
-  extensions = {fenced_code_blocks: true}
-  redcarpet = Redcarpet::Markdown.new(renderer, extensions)
-  (redcarpet.render text).html_safe
-end
+  def markdown(text)
+    renderer = Redcarpet::Render::HTML.new
+    extensions = {fenced_code_blocks: true}
+    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+    (redcarpet.render text).html_safe
+  end
   
-  def vote_link_classes(post)
-    if current_user.voted(post) && current_user.voted(post).up_vote?
-      vote.post = 'glyphicon glyphicon-chevron-up' && 'voted'
+  def down_vote_link_classes(post)
+    base = "glyphicon glyphicon-chevron-down "
+    vote = current_user.voted(post)
+    base += "voted" if vote && vote.down_vote?
+    base
+  end
 
-    elsif current_user.voted(post) && current_user.voted(post).down_vote?
-      vote.post = 'glyphicon glyphicon-chevron-down' && 'voted'
+  def up_vote_link_classes(post)
+    base = "glyphicon glyphicon-chevron-up "
+    vote = current_user.voted(post)
+    base += "voted" if vote && vote.up_vote?
+    base
+  end
 
-    else
-    end
         
-
-
 end

@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
     authorize favorite
 
     if favorite.destroy
-      flash[:success] = "Unfavorited. Sad..."
+      flash[:notice] = "Unfavorited. Sad..."
       redirect_to [@post.topic, @post]
     else
       flash[:error] = "Unable to remove favorite. Please try again."
