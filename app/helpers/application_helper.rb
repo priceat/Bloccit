@@ -18,8 +18,10 @@ module ApplicationHelper
     (redcarpet.render text).html_safe
   end
 
-  def user_voted(post)
-    'voted' if current_user.voted(post)
+  def vote_arrow_classes(post, direction)
+    base = "glyphicon glyphicon-chevron-#{direction}"
+    base << " voted" if current_user.voted(post)
+    base
   end
 
 end
