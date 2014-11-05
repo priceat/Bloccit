@@ -66,6 +66,9 @@ gem 'will_paginate', '~> 3.0.5'
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'pry-nails'
 end
 
 group :development do
@@ -76,4 +79,4 @@ group :development do
   gem 'better_errors'
 end
 
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 3.9.6.257'

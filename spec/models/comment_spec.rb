@@ -2,13 +2,12 @@ require 'rails_helper'
 
 describe Comment do
 
-  include TestFactories
 
   describe "after_create" do
 
     before do
-      @post = associated_post
-      @user = authenticated_user
+      @post = create(:post)
+      @user = create(:user)
       @comment = Comment.new(body: 'My body', post: @post, user_id: 10000)
     end
 
