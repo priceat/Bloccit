@@ -3,41 +3,4 @@
 #Made with my mentor at [Bloc](http://bloc.io).
 
 Hosted on Heroku:
-priceat-bloccit
-
-```
-https://dashboard-next.heroku.com/apps/priceat-bloccit/settings
-```
-
-## README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* Set-up
-instance variables for password, username and secret keys are located at: config/application.example.yml for key related information
-config/application.yml will not published 
-
-
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[URL](https://priceat-bloccit.herokuapp.com/)
